@@ -3,13 +3,7 @@ import { version } from './version'
 import type { App, Plugin } from '@vue/runtime-core'
 import type { ConfigProviderContext } from '@element-plus/tokens'
 
-const INSTALLED_KEY = Symbol('INSTALLED_KEY')
-
-declare module '@vue/runtime-core' {
-  interface App {
-    [INSTALLED_KEY]?: boolean
-  }
-}
+export const INSTALLED_KEY = Symbol('INSTALLED_KEY')
 
 export const makeInstaller = (components: Plugin[] = []) => {
   const install = (app: App, options?: ConfigProviderContext) => {

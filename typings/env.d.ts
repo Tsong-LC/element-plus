@@ -1,4 +1,5 @@
 import type { vShow } from 'vue'
+import type { INSTALLED_KEY } from '../packages/element-plus/make-installer'
 
 declare global {
   const process: {
@@ -16,6 +17,10 @@ declare global {
 }
 
 declare module '@vue/runtime-core' {
+  export interface App {
+    [INSTALLED_KEY]?: boolean
+  }
+
   export interface GlobalComponents {
     Component: (props: { is: Component | string }) => void
   }
